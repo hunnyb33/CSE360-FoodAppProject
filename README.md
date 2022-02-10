@@ -4,3 +4,4 @@
 - Trent Buckallew : eltrento
 - Kyle Gray: hunnyb33
 - Joseph Hand : josephH00
+- Sarthak Agarwal
