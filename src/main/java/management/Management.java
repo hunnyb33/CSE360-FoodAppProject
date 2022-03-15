@@ -1,6 +1,10 @@
 package management;
 
-public class Management implements User
+public class Management extends User
 {
-
+	public Management()
+	{
+		username = "Admin";
+		password = "TotallySecurePassword";
+	}
 }
