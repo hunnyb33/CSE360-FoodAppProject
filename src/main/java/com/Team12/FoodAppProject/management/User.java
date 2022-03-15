@@ -1,4 +1,4 @@
-package management;
+package com.Team12.FoodAppProject.management;
 
 /*
 * NOTE: This class is temporary as I need to wait for the proper one to be made by Sarthak and Trent.

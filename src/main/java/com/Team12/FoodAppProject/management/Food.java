@@ -1,4 +1,4 @@
-package management;
+package com.Team12.FoodAppProject.management;
 
 import java.awt.*;
 import java.util.ArrayList;

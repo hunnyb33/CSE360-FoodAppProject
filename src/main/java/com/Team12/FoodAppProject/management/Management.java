@@ -1,4 +1,4 @@
-package management;
+package com.Team12.FoodAppProject.management;
 
 public class Management extends User
 {
