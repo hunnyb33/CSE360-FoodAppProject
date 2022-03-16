@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Food implements Seriablizable {
+public class Food implements Serializable {
 
 	private String name;
 	private double price;
@@ -62,7 +62,7 @@ public class Food implements Seriablizable {
 	/** for the tags of this item
 	* @return java.util.ArrayList
 	*/
-	public List<String> getTags() {
+	public ArrayList<String> getTags() {
 
 		return this.tags;
 
@@ -114,7 +114,7 @@ public class Food implements Seriablizable {
 
 	/** Do we want this function or replace with just addTag() and removeTag() functions?
 	*/
-	public void setTags(List<String> tags) {
+	public void setTags(ArrayList<String> tags) {
 
 		// work in progress
 
@@ -148,7 +148,7 @@ public class Food implements Seriablizable {
 	public boolean compare(Food item1, Food item2) {
 
 		// checking for string equality
-		if (stringComapre(item1.getName(), item2.getName()) == 0) {
+		if (stringCompare(item1.getName(), item2.getName()) == 0) {
 
 			return true;
 
