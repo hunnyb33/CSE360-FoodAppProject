@@ -14,7 +14,7 @@ class Order implements Serializable {
 		orderedFood = new ArrayList<>();
 
 		// defualt status for new order, zero
-		short = 0;
+		orderStatus = 0;
 
 	} // end of Food() default constructor
 
@@ -37,12 +37,12 @@ class Order implements Serializable {
 	public boolean removeFood(Food removeMe) {
 
 		// seach list
-		for (int i = 0, i < this.orderedFood.size(), i++) {
+		for (int i = 0; i < this.orderedFood.size(); i++) {
 
 			// if found item
-			if (compare(removeMe, this.orderedFood[i]) {
+			if (compare(removeMe, this.orderedFood[i])) {
 
-				this.orderedFood.remove(i];
+				this.orderedFood.remove(i);
 
 				return true;
 
@@ -64,7 +64,7 @@ class Order implements Serializable {
 		double sum = 0;
 
 		// getting each price
-		for (int i = 0, i < this.orderedFood.size(), i++) {
+		for (int i = 0; i < this.orderedFood.size(); i++) {
 
 			sum = sum + this.orderedFood[i].getPrice();
 
