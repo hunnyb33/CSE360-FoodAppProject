@@ -3,7 +3,7 @@ import java.io.Serializable;
 
 class Order implements Serializable {
 
-	private <Food> orderedFood;
+	private List<Food> orderedFood;
 	private short orderStatus;
 
 	/** Default constuctor for Order class
