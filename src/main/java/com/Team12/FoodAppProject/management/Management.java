@@ -45,7 +45,7 @@ public class Management extends User
 			ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 			return (Food)objectIn.readObject();
 		}
-		catch (Exception exception)
+		catch(Exception exception)
 		{
 			return null;
 		}
@@ -53,6 +53,14 @@ public class Management extends User
 	
 	private void deleteFoodItem(String name)
 	{
-	
+		try
+		{
+			File fileToDelete = new File(".\\Food\\food_" + name); // Needs testing
+			fileToDelete.delete();
+		}
+		catch(Exception exception)
+		{
+			exception.printStackTrace(); // Is this even helpful for a GUI app?
+		}
 	}
 }
