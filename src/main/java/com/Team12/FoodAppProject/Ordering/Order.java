@@ -42,7 +42,7 @@ class Order implements Serializable {
 		for (int i = 0; i < this.orderedFood.size(); i++) {
 
 			// if found item
-			if (Food.xcompare(removeMe, this.orderedFood.get(i))) {
+			if (Food.compare(removeMe, this.orderedFood.get(i))) {
 
 				this.orderedFood.remove(i);
 
