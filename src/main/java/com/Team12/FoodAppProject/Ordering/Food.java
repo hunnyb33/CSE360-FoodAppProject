@@ -145,7 +145,7 @@ public class Food implements Serializable {
 	* @param item2 second item, Food object
 	* @return true if the names match, false if otherwise
 	*/
-	public boolean compare(Food item1, Food item2) {
+	public static boolean compare(Food item1, Food item2) {
 
 		// checking for string equality
 		if (item1.getName().compareTo(item2.getName()) == 0) {
@@ -170,7 +170,7 @@ public class Food implements Serializable {
 	* @param item2 first item as a food object
 	* @return true if all the variables mathc, false if otherwise
 	*/
-	public boolean strictCompare(Food item1, Food item2) {
+	public static boolean strictCompare(Food item1, Food item2) {
 
 		// work in progress
 		return true;
