@@ -55,7 +55,7 @@ public class Food implements Serializable {
 	*/
 	public int getTimeToCook() {
 
-		return this.timeToCook();
+		return this.timeToCook;
 
 	} // end of getTimeToCook() method defintion
 
@@ -148,7 +148,7 @@ public class Food implements Serializable {
 	public boolean compare(Food item1, Food item2) {
 
 		// checking for string equality
-		if (stringCompare(item1.getName(), item2.getName()) == 0) {
+		if (compareTo(item1.getName(), item2.getName()) == 0) {
 
 			return true;
 

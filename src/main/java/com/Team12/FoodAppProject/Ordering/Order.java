@@ -11,7 +11,7 @@ class Order implements Serializable {
 	*/
 	public Order() {
 
-		orderedFood = new ArrayList<>();
+		orderedFood = new ArrayList<Food>();
 
 		// defualt status for new order, zero
 		orderStatus = 0;
@@ -40,7 +40,7 @@ class Order implements Serializable {
 		for (int i = 0; i < this.orderedFood.size(); i++) {
 
 			// if found item
-			if (compare(removeMe, this.orderedFood[i])) {
+			if (compare(removeMe, this.orderedFood.get(i))) {
 
 				this.orderedFood.remove(i);
 
@@ -66,7 +66,7 @@ class Order implements Serializable {
 		// getting each price
 		for (int i = 0; i < this.orderedFood.size(); i++) {
 
-			sum = sum + this.orderedFood[i].getPrice();
+			sum = sum + this.orderedFood.get(i).getPrice();
 
 		} // end of for i less than orderedFoodSize
 
