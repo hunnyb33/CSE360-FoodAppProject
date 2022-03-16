@@ -8,7 +8,7 @@ public class Food implements Serializable {
 
 	private String name;
 	private double price;
-	private final int timeToCook;
+	private int timeToCook;
 	private ArrayList<String> tags;
 	private Image image;
 	private String description;
@@ -148,7 +148,7 @@ public class Food implements Serializable {
 	public boolean compare(Food item1, Food item2) {
 
 		// checking for string equality
-		if (compareTo(item1.getName(), item2.getName()) == 0) {
+		if (item1.getName().compareTo(item2.getName()) == 0) {
 
 			return true;
 
