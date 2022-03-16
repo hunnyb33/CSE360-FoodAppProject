@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Management extends User
 {
+	
 	public Management()
 	{
 		username = "Admin";
@@ -34,5 +35,24 @@ public class Management extends User
 	{
 		Food food = new Food(name, price, timeToCook, tags, image, description);
 		writeFood(food);
+	}
+	
+	private Food findFoodItem(String name)
+	{
+		try
+		{
+			FileInputStream fileIn = new FileInputStream(".\\Food\\food_" + name);
+			ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+			return (Food)objectIn.readObject();
+		}
+		catch (Exception exception)
+		{
+			return null;
+		}
+	}
+	
+	private void deleteFoodItem(String name)
+	{
+	
 	}
 }
