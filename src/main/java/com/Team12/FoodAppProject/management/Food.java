@@ -1,14 +1,14 @@
 package com.Team12.FoodAppProject.management;
 
-import javafx.scene.image.Image;
-
+import java.io.Serializable;
 import java.util.ArrayList;
+import javafx.scene.image.Image;
 
 /*
  * NOTE: This class is temporary as I need to wait for the proper one to be made by Kyle.
  * */
 
-public class Food
+public class Food implements Serializable
 {
 	String name;
 	double price;
