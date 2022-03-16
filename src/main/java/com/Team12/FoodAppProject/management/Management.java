@@ -32,6 +32,7 @@ public class Management extends User
 	
 	private void addFoodItem(String name, double price, int timeToCook, ArrayList<String> tags, Image image, String description)
 	{
-	
+		Food food = new Food(name, price, timeToCook, tags, image, description);
+		writeFood(food);
 	}
 }
