@@ -1,12 +1,12 @@
 package com.Team12.FoodAppProject.accountPage;
 
-import com.Team12.FoodAppProject.accountPage.panels.ISwappablePanel;
+import com.Team12.FoodAppProject.accountPage.panels.IPanel;
 
 import java.util.Map;
 
 public class AccountPage {
-    private Map<SwappablePanels, ISwappablePanel> panels;
-    private SwappablePanels selectedPanels;
+    private Map<SwappablePanels, IPanel> panels;
+    private SwappablePanels selectedPanel;
 
 
 }
