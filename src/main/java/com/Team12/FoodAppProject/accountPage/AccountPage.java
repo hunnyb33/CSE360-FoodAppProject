@@ -5,6 +5,8 @@ import com.Team12.FoodAppProject.accountPage.panels.ISwappablePanel;
 import java.util.Map;
 
 public class AccountPage {
-    private Map<ProfileSubPanels, ISwappablePanel> pages;
-    private ProfileSubPanels selectedPage;
+    private Map<SwappablePanels, ISwappablePanel> panels;
+    private SwappablePanels selectedPanels;
+
+
 }

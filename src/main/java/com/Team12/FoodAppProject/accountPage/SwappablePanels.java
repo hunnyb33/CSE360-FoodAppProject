@@ -1,6 +1,6 @@
 package com.Team12.FoodAppProject.accountPage;
 
-public enum ProfileSubPanels {
+public enum SwappablePanels {
     PROFILEINFORMATION,
     ORDERHISTORY,
     PAYMENTINFORMATION
