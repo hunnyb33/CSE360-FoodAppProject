@@ -35,14 +35,19 @@ public class FoodApplication extends Application
     
     private void AddFoodItemWindow()
     {
+        AddFoodItemWindow("Item Name", "Item Price", "Item Time to Cook", "Item Tags");
+    }
+    
+    private void AddFoodItemWindow(String name, String price, String time, String tags)
+    {
         // Main label
         Label addFoodLabel = new Label("Add Food Item");
         
         // Text Fields
-        TextField nameTextField = new TextField("Item Name");
-        TextField priceTextField = new TextField("Item Price");
-        TextField timeTextField = new TextField("Item Time to Cook");
-        TextField tagTextField = new TextField("Item Tags");
+        TextField nameTextField = new TextField(name);
+        TextField priceTextField = new TextField(price);
+        TextField timeTextField = new TextField(time);
+        TextField tagTextField = new TextField(tags);
         
         // Add Button for adding Images
         Button imageButton = new Button("Add Item Image");
