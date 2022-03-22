@@ -1,5 +1,6 @@
 package com.Team12.FoodAppProject;
 
+import com.Team12.FoodAppProject.management.Management;
 import javafx.application.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -9,6 +10,8 @@ import javafx.stage.Stage;
 
 public class FoodApplication extends Application
 {
+    Management management;
+    
     @Override
     public void start(Stage primaryStage) throws Exception
     {
@@ -31,6 +34,9 @@ public class FoodApplication extends Application
         primaryStage.setScene(scene);
         primaryStage.setTitle("Management GUI");
         primaryStage.show();
+        
+        // Create management object
+        management = new Management();
     }
     
     private void AddFoodItemWindow()

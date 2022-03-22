@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Management extends User
 {
-	
 	public Management()
 	{
 		username = "Admin";
@@ -31,8 +30,27 @@ public class Management extends User
 		}
 	}
 	
-	private void addFoodItem(String name, double price, int timeToCook, ArrayList<String> tags, Image image, String description)
+	private void addFoodItem(String name, String priceStr, String timeToCookStr, String tagsStr, Image image, String description) throws Exception
 	{
+		// Cast price and timeToCook to double and int
+		double price = Double.parseDouble(priceStr);
+		int timeToCook = Integer.parseInt(timeToCookStr);
+		
+		// Parse through the tags
+		ArrayList<String> tags = new ArrayList<>();
+		int prevEnd = 0;
+		
+		for(int i = 0; i < tagsStr.length(); i++)
+		{
+			if(tagsStr.charAt(i) == ',')
+			{
+				tags.add(tagsStr.substring(prevEnd, i));
+				prevEnd = i + 1;
+			}
+		}
+		
+		tags.add(tagsStr.substring(prevEnd));
+		
 		Food food = new Food(name, price, timeToCook, tags, image, description);
 		writeFood(food);
 	}
