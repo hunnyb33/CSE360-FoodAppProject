@@ -1,6 +1,6 @@
 package com.Team12.FoodAppProject;
 
-import com.Team12.FoodAppProject.management.Management;
+import com.Team12.FoodAppProject.management.*;
 import javafx.application.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -13,7 +13,7 @@ public class FoodApplication extends Application
     Management management;
     
     @Override
-    public void start(Stage primaryStage) throws Exception
+    public void start(Stage primaryStage)
     {
         // Main label
         Label label = new Label("Welcome Management!\nHow would you like to adjust the menu?");
@@ -25,6 +25,7 @@ public class FoodApplication extends Application
         
         // Set on actions
         addFoodButton.setOnAction(actionEvent -> AddFoodItemWindow());
+        editFoodButton.setOnAction(actionEvent -> EditFoodItemWindow());
         
         // Add buttons and label to VBox
         VBox vBox = new VBox(label, addFoodButton, editFoodButton, removeFoodButton);
@@ -48,6 +49,26 @@ public class FoodApplication extends Application
                 "Item Tags",
                 "Item Description"
         );
+    }
+    
+    private void AddFoodItemWindow(Food food)
+    {
+        // Get the easier fields
+        String name = food.getName();
+        String price = Double.toString(food.getPrice());
+        String time = Integer.toString(food.getTimeToCook());
+        String description = food.getDescription();
+        
+        // Handle tags
+        String tags = "";
+        for (String tag : food.getTags())
+        {
+            if(tags.compareTo("") != 0) tags += ", ";
+            tags += tag;
+        }
+        
+        // Now call the function
+        AddFoodItemWindow(name, price, time, tags, description);
     }
     
     private void AddFoodItemWindow(String name, String price, String time, String tags, String description)
@@ -104,6 +125,38 @@ public class FoodApplication extends Application
         Scene scene = new Scene(vBox, 300, 300);
         stage.setScene(scene);
         stage.setTitle("Add Food Item");
+        stage.show();
+    }
+    
+    private void EditFoodItemWindow()
+    {
+        // Main label
+        Label addFoodLabel = new Label("Edit Food Item");
+        
+        // Text Field
+        TextField nameTextField = new TextField("Item Name");
+        
+        // Add Search Button
+        Button confirmButton = new Button("Edit Item");
+        confirmButton.setOnAction(actionEvent ->
+        {
+            Food food = management.findFoodItem(nameTextField.getText());
+            AddFoodItemWindow(food);
+        });
+        
+        // Add to VBox
+        VBox vBox = new VBox
+                (
+                        addFoodLabel,
+                        nameTextField,
+                        confirmButton
+                );
+        
+        // Create Add Food Item Window
+        Stage stage = new Stage();
+        Scene scene = new Scene(vBox, 300, 150);
+        stage.setScene(scene);
+        stage.setTitle("Edit Food Item");
         stage.show();
     }
     

@@ -30,7 +30,7 @@ public class Management extends User
 			if(!Files.isDirectory(path)) Files.createDirectories(path);
 			
 			// Now create the new food item
-			FileOutputStream fileOut = new FileOutputStream(foodDirectory + food.name + ".food");
+			FileOutputStream fileOut = new FileOutputStream(foodDirectory + food.getName() + ".food");
 			ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 			objectOut.writeObject(food);
 			objectOut.close();
@@ -41,7 +41,7 @@ public class Management extends User
 		}
 	}
 	
-	public void addFoodItem(String name, String priceStr, String timeToCookStr, String tagsStr, Image image, String description) throws Exception
+	public void addFoodItem(String name, String priceStr, String timeToCookStr, String tagsStr, Image image, String description)
 	{
 		// Cast price and timeToCook to double and int
 		double price = Double.parseDouble(priceStr);
@@ -66,16 +66,34 @@ public class Management extends User
 		writeFood(food);
 	}
 	
-	private Food findFoodItem(String name)
+	public Food findFoodItem(String name)
 	{
 		try
 		{
-			FileInputStream fileIn = new FileInputStream(".\\Food\\food_" + name);
+			// Get directory of food items
+			String userDirectory = System.getProperty("user.dir");
+			String foodDirectory = userDirectory + "\\Food\\";
+			Path path = Paths.get(foodDirectory);
+			
+			// Throw if that directory doesn't exist
+			if(!Files.isDirectory(path)) throw new FileNotFoundException();
+			
+			// Load the food item
+			FileInputStream fileIn = new FileInputStream(foodDirectory + name + ".food");
 			ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+			
+			System.out.println("TEST");
+			
 			return (Food)objectIn.readObject();
+		}
+		catch(FileNotFoundException exception)
+		{
+			System.out.println("FILE NOT FOUND");
+			return null;
 		}
 		catch(Exception exception)
 		{
+			System.out.println(exception.getMessage());
 			return null;
 		}
 	}
