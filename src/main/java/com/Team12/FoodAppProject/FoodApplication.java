@@ -41,10 +41,16 @@ public class FoodApplication extends Application
     
     private void AddFoodItemWindow()
     {
-        AddFoodItemWindow("Item Name", "Item Price", "Item Time to Cook", "Item Tags");
+        AddFoodItemWindow(
+                "Item Name",
+                "Item Price",
+                "Item Time to Cook",
+                "Item Tags",
+                "Item Description"
+        );
     }
     
-    private void AddFoodItemWindow(String name, String price, String time, String tags)
+    private void AddFoodItemWindow(String name, String price, String time, String tags, String description)
     {
         // Main label
         Label addFoodLabel = new Label("Add Food Item");
@@ -58,6 +64,9 @@ public class FoodApplication extends Application
         // Add Button for adding Images
         Button imageButton = new Button("Add Item Image");
         
+        // Text Area for description
+        TextArea descriptionTextArea = new TextArea(description);
+        
         // Add Confirm Button
         Button confirmButton = new Button("Confirm New Item");
         confirmButton.setOnAction(actionEvent ->
@@ -70,7 +79,7 @@ public class FoodApplication extends Application
                         timeTextField.getText(),
                         tagTextField.getText(),
                         null,
-                        null);
+                        descriptionTextArea.getText());
             } catch (Exception e)
             {
                 e.printStackTrace();
@@ -86,6 +95,7 @@ public class FoodApplication extends Application
             timeTextField,
             tagTextField,
             imageButton,
+            descriptionTextArea,
             confirmButton
         );
         
