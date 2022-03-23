@@ -60,6 +60,22 @@ public class FoodApplication extends Application
         
         // Add Confirm Button
         Button confirmButton = new Button("Confirm New Item");
+        confirmButton.setOnAction(actionEvent ->
+        {
+            try
+            {
+                management.addFoodItem(
+                        nameTextField.getText(),
+                        priceTextField.getText(),
+                        timeTextField.getText(),
+                        tagTextField.getText(),
+                        null,
+                        null);
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        });
         
         // Add to VBox
         VBox vBox = new VBox

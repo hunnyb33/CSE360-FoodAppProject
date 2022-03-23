@@ -2,6 +2,9 @@ package com.Team12.FoodAppProject.management;
 
 import com.Team12.FoodAppProject.User;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
 
@@ -18,8 +21,16 @@ public class Management extends User
 	{
 		try
 		{
-			// TODO: Figure out where to actually store the food files
-			FileOutputStream fileOut = new FileOutputStream(".\\Food\\food_" + food.name);
+			// Get directory of food items
+			String userDirectory = System.getProperty("user.dir");
+			String foodDirectory = userDirectory + "\\Food\\";
+			Path path = Paths.get(foodDirectory);
+			
+			// Ensure that directory exists
+			if(!Files.isDirectory(path)) Files.createDirectories(path);
+			
+			// Now create the new food item
+			FileOutputStream fileOut = new FileOutputStream(foodDirectory + food.name + ".food");
 			ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 			objectOut.writeObject(food);
 			objectOut.close();
@@ -30,7 +41,7 @@ public class Management extends User
 		}
 	}
 	
-	private void addFoodItem(String name, String priceStr, String timeToCookStr, String tagsStr, Image image, String description) throws Exception
+	public void addFoodItem(String name, String priceStr, String timeToCookStr, String tagsStr, Image image, String description) throws Exception
 	{
 		// Cast price and timeToCook to double and int
 		double price = Double.parseDouble(priceStr);
