@@ -21,14 +21,15 @@ public class FoodApplication extends Application
         // The three menu options
         Button addFoodButton = new Button("Add new food item");
         Button editFoodButton = new Button("Edit food item");
-        Button removeFoodButton = new Button("Remove food item");
+        Button deleteFoodButton = new Button("Remove food item");
         
         // Set on actions
         addFoodButton.setOnAction(actionEvent -> AddFoodItemWindow());
         editFoodButton.setOnAction(actionEvent -> EditFoodItemWindow());
+        deleteFoodButton.setOnAction(actionEvent -> DeleteFoodItemWindow());
         
         // Add buttons and label to VBox
-        VBox vBox = new VBox(label, addFoodButton, editFoodButton, removeFoodButton);
+        VBox vBox = new VBox(label, addFoodButton, editFoodButton, deleteFoodButton);
         
         // Create the management scene
         Scene scene = new Scene(vBox, 400, 200);
@@ -142,6 +143,37 @@ public class FoodApplication extends Application
         {
             Food food = management.findFoodItem(nameTextField.getText());
             AddFoodItemWindow(food);
+        });
+        
+        // Add to VBox
+        VBox vBox = new VBox
+                (
+                        addFoodLabel,
+                        nameTextField,
+                        confirmButton
+                );
+        
+        // Create Add Food Item Window
+        Stage stage = new Stage();
+        Scene scene = new Scene(vBox, 300, 150);
+        stage.setScene(scene);
+        stage.setTitle("Edit Food Item");
+        stage.show();
+    }
+    
+    private void DeleteFoodItemWindow()
+    {
+        // Main label
+        Label addFoodLabel = new Label("Delete Food Item");
+        
+        // Text Field
+        TextField nameTextField = new TextField("Item Name");
+        
+        // Add Search Button
+        Button confirmButton = new Button("Delete Item");
+        confirmButton.setOnAction(actionEvent ->
+        {
+            management.deleteFoodItem(nameTextField.getText());
         });
         
         // Add to VBox

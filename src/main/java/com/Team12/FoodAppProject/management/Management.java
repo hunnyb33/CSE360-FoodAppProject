@@ -98,16 +98,25 @@ public class Management extends User
 		}
 	}
 	
-	private void deleteFoodItem(String name)
+	public boolean deleteFoodItem(String name)
 	{
 		try
 		{
-			File fileToDelete = new File(".\\Food\\food_" + name); // Needs testing
-			fileToDelete.delete();
+			// Get directory of food items
+			String userDirectory = System.getProperty("user.dir");
+			String foodDirectory = userDirectory + "\\Food\\";
+			Path path = Paths.get(foodDirectory);
+			
+			// Throw if that directory doesn't exist
+			if(!Files.isDirectory(path)) throw new FileNotFoundException();
+			
+			// Now delete item
+			File fileToDelete = new File(foodDirectory + name + ".food");
+			return fileToDelete.delete();
 		}
 		catch(Exception exception)
 		{
-			exception.printStackTrace(); // Is this even helpful for a GUI app?
+			return false;
 		}
 	}
 }
