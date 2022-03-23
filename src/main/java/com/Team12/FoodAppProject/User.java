@@ -2,7 +2,10 @@ package com.Team12.FoodAppProject;
 
 public abstract class User {
 
-    private String username, password;
+    protected String username, password;
 
-    public abstract boolean verifyLogin(String username, String password);
+    public boolean verifyLogin(String username, String password)
+    {
+        return username.compareTo(this.username) == 0 && password.compareTo(this.password) == 0;
+    }
 }

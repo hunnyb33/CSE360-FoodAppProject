@@ -1,9 +1,9 @@
 package com.Team12.FoodAppProject.management;
 
+import com.Team12.FoodAppProject.User;
 import java.io.*;
-import javafx.scene.image.Image;
-
 import java.util.ArrayList;
+import javafx.scene.image.Image;
 
 public class Management extends User
 {
