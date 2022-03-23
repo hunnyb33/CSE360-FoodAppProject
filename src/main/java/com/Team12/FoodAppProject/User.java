@@ -1,5 +1,8 @@
 package com.Team12.FoodAppProject;
 
-public interface User {
-    public boolean verifyLogin(String username, String password);
+public abstract class User {
+
+    private String username, password;
+
+    public abstract boolean verifyLogin(String username, String password);
 }
